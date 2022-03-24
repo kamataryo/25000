@@ -58,7 +58,10 @@ export default function Map() {
           })
           .on('click', (e) => {
             const features = e.target.queryRenderedFeatures(e.point).filter(feature => feature.geometry.type === 'Polygon');
-            const {properties: { name }, source} = features[0]
+            if(!features[0]) {
+              return
+            }
+            const {properties: { name }, source } = features[0]
             if(source === 'map-rects') {
               serialize(name);
               toggleMapOwnership(name, e.target);
