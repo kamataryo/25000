@@ -51,9 +51,18 @@ export default function Map() {
               ['==', 'scale', 25000],
             ],
             layout: {
-              'text-field': ['get', 'name'],
+              'text-field': [
+                'case',
+                ['==', ['slice',['get', 'name'], 0, 1], '★'],
+                ['slice',['get', 'name'], 1, 10],
+                ['get', 'name'],
+              ],
               'text-font': ['Noto Sans Regular'],
               'text-size': 14,
+            },
+            paint: {
+              'text-halo-color': 'white',
+              "text-halo-width": 2
             }
           })
           .on('click', (e) => {
@@ -123,7 +132,7 @@ function toggleMapOwnership(name: string, map: maplibregl.Map) {
         'line-color': 'red',
         'line-width': 3
       },
-    });
+    }, 'map-labels');
   }
   if (map.getLayer(fillKey)) {
     map.removeLayer(fillKey);
@@ -142,6 +151,6 @@ function toggleMapOwnership(name: string, map: maplibregl.Map) {
         'fill-color': 'red',
         "fill-opacity": .4,
       },
-    });
+    }, 'map-labels');
   }
 }
