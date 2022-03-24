@@ -2,6 +2,7 @@
   "name": "25000",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kamataryo.github.io/25000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",

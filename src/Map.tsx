@@ -23,7 +23,7 @@ export default function Map() {
         e.target
           .addSource('map-rects', {
             type: 'vector',
-            tiles: [new URL('/tiles', window.location.href).href + '/{z}/{x}/{y}.pbf'],
+            tiles: [new URL(window.location.pathname + 'tiles', window.location.href).href + '/{z}/{x}/{y}.pbf'],
           })
           .addLayer({
             id: 'map-rects',
@@ -97,13 +97,13 @@ function serialize(name: string) {
   } else {
     currentOwnerShip.splice(currentOwnerShip.indexOf(name), 1);
   }
-  localStorage.setItem('map-ownership', JSON.stringify(currentOwnerShip));
+  localStorage.setItem('io.github.kamataryo.25000-maps-ownership', JSON.stringify(currentOwnerShip));
 }
 
 function deserialize() {
   let currentOwnerShip: string[] = [];
   try {
-    currentOwnerShip = JSON.parse(localStorage.getItem('map-ownership') || '[]');
+    currentOwnerShip = JSON.parse(localStorage.getItem('io.github.kamataryo.25000-maps-ownership') || '[]');
     if (!Array.isArray(currentOwnerShip) || !currentOwnerShip.some(ownership => typeof ownership !== 'string')) {
       throw new Error('invalid data');
     }
