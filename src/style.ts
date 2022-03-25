@@ -9,7 +9,7 @@ export const style: maplibregl.Style = {
       type: 'raster',
       tiles: ['https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png'],
       tileSize: 256,
-      attribution: '<a href="http://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html" target="_blank">地理院タイル</a> を使って <a href="https://github.com/kamataryo">@kamataryo</a> が作成',
+      attribution: '<a href="http://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html" target="_blank">地理院タイル</a> を使って <a href="https://github.com/kamataryo/25000">@kamataryo</a> が作成',
     },
   },
   glyphs: 'https://glyphs.geolonia.com/{fontstack}/{range}.pbf',
